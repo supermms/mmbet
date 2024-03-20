@@ -19,4 +19,5 @@ def main(email):
     if stripe_auth.is_active_subscriber(email):
         st.write(stripe.Customer.list(email=email))
     else:
-    st.sidebar.link_button("Inscreva-se agora!", f"{stripe_auth.stripe_link_test}?prefilled_email={email}")
+        button_url = f"{stripe_auth.stripe_link_test}?prefilled_email={email}"
+        st.sidebar.link_button("Inscreva-se agora!", button_url)
