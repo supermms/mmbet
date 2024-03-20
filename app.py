@@ -16,4 +16,3 @@ import stripe_auth
 def main(email):
     ##Check 
     stripe_auth.display_user_info(email)
-    st.title(f"{email}")
