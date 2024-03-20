@@ -70,24 +70,9 @@ def redirect_button(
         if testing_mode
         else st.secrets["stripe_link"]
     )
-    button_url = "caguei"#f"{stripe_link}?prefilled_email={encoded_email}"
+    button_url = f"{stripe_link}?prefilled_email={encoded_email}"
 
-    st.markdown(
-        f"""
-    <a href="{button_url}" target="_blank">
-        <div style="
-            display: inline-block;
-            padding: 0.5em 1em;
-            color: #FFFFFF;
-            background-color: {color};
-            border-radius: 3px;
-            text-decoration: none;">
-            {text}
-        </div>
-    </a>
-    """,
-        unsafe_allow_html=True,
-    )
+    st.link_button("Inscreva-se", button_url)
 
 
 
