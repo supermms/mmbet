@@ -59,20 +59,13 @@ def get_free_uses(email):
     )['Item']['free_usos_restantes']['N']
 
 
-def get_email(username):
-    return dynamodb.get_item(
-    TableName='lbb-report-manager-users',
-    Key={
-        'username': {'S': username}
-    }
-    )['Item']['email']['S']
 
-def delete_user(username):
+def delete_user(email):
     """Always returns None, even if the key does not exist"""
     return dynamodb.delete_item(
     TableName='lbb-report-manager-users',
     Key={
-        'username': {'S': username}
+        'email': {'S': email}
     }
     )
 

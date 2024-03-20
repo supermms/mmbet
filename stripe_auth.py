@@ -91,16 +91,15 @@ def redirect_button(
 
 
 
-def display_user_info(username):
+def display_user_info(email):
     #User information
-    st.sidebar.markdown(f'### Seja bem vindo, {username}')
-    customer_email = db.get_email(username)
-    email_html = """ <p> E-mail: %s </p>""" % customer_email
+    st.sidebar.markdown(f'### Seja bem vindo, {db.get_user(email)}')
+    email_html = """ <p> E-mail: %s </p>""" % email
     st.sidebar.markdown(email_html, unsafe_allow_html=True)
-    if not is_active_subscriber(customer_email):
+    if not is_active_subscriber(email):
         st.sidebar.subheader(f'Assinatura: Inativa')
     else:
-        customers = stripe.Customer.list(email=customer_email, limit=1)
+        customers = stripe.Customer.list(email=email, limit=1)
         customer_id = customers.data[0].id
         subscriptions = stripe.Subscription.list(customer=customer_id, limit=1)
         if subscriptions.data:
