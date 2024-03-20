@@ -65,11 +65,11 @@ def redirect_button(
     testing_mode = os.getenv("testing_mode")#st.secrets.get("testing_mode", False)
     encoded_email = urllib.parse.quote(customer_email)
     stripe.api_key = get_api_key()
-    # stripe_link = (
-    #     st.secrets["stripe_link_test"]
-    #     if testing_mode
-    #     else st.secrets["stripe_link"]
-    # )
+    stripe_link = (
+        st.secrets["stripe_link_test"]
+        if testing_mode
+        else st.secrets["stripe_link"]
+    )
     button_url = f"{stripe_link_test if testing_mode else stripe_link}?prefilled_email={encoded_email}"
 
     st.markdown(
@@ -96,6 +96,7 @@ def display_user_info(email):
     st.sidebar.markdown(f"### Seja bem vindo, {db.get_user(email)['username']['S']}")
     email_html = """ <p> E-mail: %s </p>""" % email
     st.sidebar.markdown(email_html, unsafe_allow_html=True)
+    st.sidebar(redirect_button)
     if not is_active_subscriber(email):
         st.sidebar.subheader(f'Assinatura: Inativa')
     else:
