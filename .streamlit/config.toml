@@ -4,6 +4,3 @@ textColor="#ffffff"
 secondaryBackgroundColor="#454F5B"
 primaryColor = "#A5D8FF"
 font="Be Vietnam"
-
-[client]
-showSidebarNavigation = false
