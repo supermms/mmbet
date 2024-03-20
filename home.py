@@ -29,9 +29,9 @@ for user in users:
     names.append(user['name']['S'])
     passwords.append(user['password']['S'])
 
-credentials = {'emails': {}}
+credentials = {'usernames': {}}
 for index in range(len(usernames)):
-    credentials['emails'][emails[index]] = {'username': usernames[index], 'name':names[index], 'password': passwords[index]}
+    credentials['usernames'][emails[index]] = {'usern': usernames[index], 'name':names[index], 'password': passwords[index]}
 
 
 print(credentials)
@@ -57,20 +57,20 @@ st.markdown("""<p class="show-on-cel" style='text-align: center; display:none; c
 
 st.write("")
     
-name, authentication_status, username = Authenticator.login("Login", "main")
+name, authentication_status, login = Authenticator.login("Login", "main")
 
 info, info1 = st.columns(2)
 
 if authentication_status == False:
     db.sign_up()
 
-if username:
-    print(username)
-    if username in usernames:
+if login:
+    print(login)
+    if login in usernames:
         if authentication_status:
-            st.markdown(f"""<p style='text-align: center;'> {username} </p>""", unsafe_allow_html=True)
+            st.markdown(f"""<p style='text-align: center;'> {login} </p>""", unsafe_allow_html=True)
             st.session_state.logged_in = True
-            app.main(username)
+            app.main(login)
         elif not authentication_status:
             with info:
                 st.error('Incorrect Password or username')
