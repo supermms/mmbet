@@ -16,8 +16,6 @@ import streamlit_authenticator as stauth
 
 st.set_page_config(page_title="MMBet", page_icon=None, layout="centered", initial_sidebar_state="auto", menu_items=None)
 
-make_sidebar()
-
 ## Fetch all users into authenticator
 users = db.fetch_all_users()
 usernames = []
