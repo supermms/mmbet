@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import binom
 #import s3_management
 from io import StringIO
-#import dynamodb as db
+import dynamodb as db
 import streamlit_authenticator as stauth
 #import stripe
 #import pages.app as app
