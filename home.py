@@ -57,7 +57,7 @@ st.markdown("""<p class="show-on-cel" style='text-align: center; display:none; c
 
 st.write("")
     
-name, authentication_status, username = Authenticator.login("Login", "main")
+name, authentication_status, username = Authenticator.login(fields={'Form name':'Login', 'Username':'E-mail', 'Password': 'Password', 'Login':'Login'}, location='main')
 
 info, info1 = st.columns(2)
 
