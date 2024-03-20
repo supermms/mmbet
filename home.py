@@ -70,7 +70,7 @@ if st.session_state["username"]:
         if st.session_state["authentication_status"]:
             st.markdown(f"""<p style='text-align: center;'> {st.session_state["username"]} </p>""", unsafe_allow_html=True)
             st.session_state.logged_in = True
-            app.main(st.session_state["username"])
+            #app.main(st.session_state["username"])
         elif not st.session_state["authentication_status"]:
             with info:
                 st.error('Incorrect Password or username')
