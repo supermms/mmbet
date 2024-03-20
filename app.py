@@ -16,5 +16,7 @@ import stripe_auth
 def main(email):
     ##Check 
     stripe_auth.display_user_info(email)
-    st.write(stripe.Customer.list(email=email))
-    st.sidebar.stripe_auth.redirect_button(text="Inscreva-se agora!", customer_email=email)
+    if stripe_auth.is_active_subscriber(email):
+        st.write(stripe.Customer.list(email=email))
+    else:
+    st.sidebar.link_button("Inscreva-se agora!", f"{stripe_auth.stripe_link_test}?prefilled_email={email}")
