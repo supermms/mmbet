@@ -12,5 +12,6 @@ import dynamodb as db
 import streamlit_authenticator as stauth
 import stripe
 
-def main():
-    st.title("OI")
+def main(email):
+    ##Check 
+    st.title(f"{email}")

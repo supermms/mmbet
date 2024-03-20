@@ -29,9 +29,10 @@ for user in users:
     names.append(user['name']['S'])
     passwords.append(user['password']['S'])
 
-credentials = {'usernames': {}}
+credentials = {'emails': {}}
 for index in range(len(usernames)):
-    credentials['usernames'][usernames[index]] = {'email': emails[index], 'name':names[index], 'password': passwords[index]}
+    credentials['emails'][emails[index]] = {'username': usernames[index], 'name':names[index], 'password': passwords[index]}
+
 
 print(credentials)
 
@@ -68,9 +69,8 @@ if username:
     if username in usernames:
         if authentication_status:
             st.markdown(f"""<p style='text-align: center;'> {username} </p>""", unsafe_allow_html=True)
-            st.write(f"Hello, {username}")
             st.session_state.logged_in = True
-            app.main()
+            app.main(username)
         elif not authentication_status:
             with info:
                 st.error('Incorrect Password or username')
