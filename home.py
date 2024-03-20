@@ -11,7 +11,7 @@ from io import StringIO
 import dynamodb as db
 import streamlit_authenticator as stauth
 #import stripe
-#import pages.app as app
+import app
 #from navigation import make_sidebar
 
 st.set_page_config(page_title="MMBet", page_icon=None, layout="centered", initial_sidebar_state="auto", menu_items=None)
@@ -67,8 +67,10 @@ if username:
     print(username)
     if username in usernames:
         if authentication_status:
+            st.markdown(f"""<p style='text-align: center;'> {username} </p>""", unsafe_allow_html=True)
             st.write(f"Hello, {username}")
             st.session_state.logged_in = True
+            app.main()
         elif not authentication_status:
             with info:
                 st.error('Incorrect Password or username')

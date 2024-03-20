@@ -12,4 +12,5 @@ import dynamodb as db
 import streamlit_authenticator as stauth
 import stripe
 
-st.title("OI")
+def main():
+    st.title("OI")
