@@ -70,7 +70,7 @@ def redirect_button(
         if testing_mode
         else st.secrets["stripe_link"]
     )
-    button_url = f"{stripe_link}?prefilled_email={encoded_email}"
+    button_url = "caguei"#f"{stripe_link}?prefilled_email={encoded_email}"
 
     st.markdown(
         f"""
