@@ -21,4 +21,4 @@ def main(email):
     else:
         button_url = f"{stripe_auth.stripe_link_test}?prefilled_email={email}"
         st.sidebar.link_button("Inscreva-se agora!", button_url)
-        st.warning("Inscreva-se utilzando o mesmo e-mail de cadastro no MMbet. Inscrições com e-mails diferentes não serão reconehcidas.")
+        st.sidebar.warning("Inscreva-se utilzando o mesmo e-mail de cadastro no MMbet. Inscrições com e-mails diferentes não serão reconehcidas.")
