@@ -76,7 +76,6 @@ def display_user_info(email):
     st.sidebar.markdown(f"### Seja bem vindo, {db.get_user(email)['username']['S']}")
     email_html = """ <p> E-mail: %s </p>""" % email
     st.sidebar.markdown(email_html, unsafe_allow_html=True)
-    st.sidebar.write(redirect_button)
     if not is_active_subscriber(email):
         st.sidebar.subheader(f'Assinatura: Inativa')
     else:
