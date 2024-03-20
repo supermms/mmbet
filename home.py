@@ -67,8 +67,8 @@ if username:
     print(username)
     if username in usernames:
         if authentication_status:
+            st.write(f"Hello, {username}")
             st.session_state.logged_in = True
-            st.switch_page("pages/app.py")
         elif not authentication_status:
             with info:
                 st.error('Incorrect Password or username')
