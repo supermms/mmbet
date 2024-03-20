@@ -52,7 +52,7 @@ scipy==1.11.2
 six==1.16.0
 smmap==5.0.0
 streamlit==1.25.0
-streamlit-authenticator==0.2.2
+streamlit-authenticator==0.3.1
 stripe==6.0.0
 tenacity==8.2.3
 toml==0.10.2
