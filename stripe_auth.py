@@ -65,11 +65,6 @@ def redirect_button(
     testing_mode = os.getenv("testing_mode")#st.secrets.get("testing_mode", False)
     encoded_email = urllib.parse.quote(customer_email)
     stripe.api_key = get_api_key()
-    stripe_link = (
-        st.secrets["stripe_link_test"]
-        if testing_mode
-        else st.secrets["stripe_link"]
-    )
     button_url = f"{stripe_link_test}?prefilled_email={encoded_email}"
 
     return st.link_button(text, button_url)
