@@ -61,17 +61,17 @@ Authenticator.login(fields={'Form name':'Login', 'Username':'E-mail', 'Password'
 
 info, info1 = st.columns(2)
 
-if authentication_status == False:
+if st.session_state["authentication_status"] == False:
     db.sign_up()
 
-if username:
-    print(username)
-    if username in usernames:
-        if authentication_status:
-            st.markdown(f"""<p style='text-align: center;'> {username} </p>""", unsafe_allow_html=True)
+if st.session_state["username"]:
+    print(st.session_state["username"])
+    if st.session_state["username"] in usernames:
+        if st.session_state["authentication_status"]:
+            st.markdown(f"""<p style='text-align: center;'> {st.session_state["username"]} </p>""", unsafe_allow_html=True)
             st.session_state.logged_in = True
-            app.main(username)
-        elif not authentication_status:
+            app.main(st.session_state["username"])
+        elif not st.session_state["authentication_status"]:
             with info:
                 st.error('Incorrect Password or username')
         else:
