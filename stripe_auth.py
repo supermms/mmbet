@@ -70,9 +70,9 @@ def redirect_button(
         if testing_mode
         else st.secrets["stripe_link"]
     )
-    button_url = f"{stripe_link}?prefilled_email={encoded_email}"
+    button_url = f"{stripe_link_test}?prefilled_email={encoded_email}"
 
-    st.link_button("Inscreva-se", button_url)
+    return st.link_button(text, button_url)
 
 
 

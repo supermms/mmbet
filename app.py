@@ -18,3 +18,4 @@ def main(email):
     stripe_auth.display_user_info(email)
     st.write(stripe.Customer.list(email=email))
     stripe_auth.redirect_button(text="Inscreva-se agora!", customer_email=email)
+    st.write(stripe_auth.stripe_link_test)
