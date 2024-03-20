@@ -17,3 +17,4 @@ def main(email):
     ##Check 
     stripe_auth.display_user_info(email)
     st.write(stripe.Customer.list(email='mms.matheus1@gmail.com'))
+    stripe_auth.redirect_button(text="Inscreva-se agora!", customer_email=customer_email)
