@@ -198,7 +198,7 @@ def sign_up():
                                     if password1 == password2:
                                         # Add User to DB
                                         hashed_password = stauth.Hasher([password2]).generate()
-                                        insert_user(username, name, email, hashed_password[0])
+                                        insert_user(email, name, username, hashed_password[0])
                                         st.success('Account created successfully!!')
                                         st.balloons()
                                     else:
